@@ -1,0 +1,86 @@
+
+% Load in required packages
+
+% For images and plots
+\usepackage{graphicx} 
+% Set required margins. It's insisted that the left margin be 1.5 in (for printing)
+% even for digital coies.
+\usepackage[letterpaper, left=1.5in, right=1in, top=1in, bottom=1in]{geometry}
+% Allows us to set linespacing conveniently as desired
+\usepackage{setspace}  
+% Title control and formatting
+\usepackage[explicit]{titlesec}  
+% Table of contents control and formatting
+\usepackage[titles]{tocloft}  
+% Set up bibliography formatting
+% \usepackage[backend=bibtex, sorting=none, bibstyle=ieee]{biblatex}  
+% Load package for appendices
+\usepackage[page]{appendix}
+% For rotated, landscape images
+\usepackage{rotating} 
+% For italicized text 
+\usepackage[normalem]{ulem}  
+
+% Pretty much indispensible math packages
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% This will allow numbering of subsubsections
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4} % Set to 3 to exclude subsubsections from TOC
+
+% Use cite package so we can do superscript citations
+\usepackage[superscript]{cite}
+
+% Call it "References" instead of "Bibliography"
+\renewcommand\bibname{References}
+
+% Set up footnote style. We'll use symbols to distinguish from superscipt numbers, which
+% used for the references. We won't use the asterisk though, because I think it's kinda 
+% ugly.
+\usepackage[bottom,hang,flushmargin,perpage,symbol*]{footmisc}
+\DefineFNsymbols*{lamportnostar}[math]{\dagger\ddagger\S\P\|{\dagger\dagger}{\ddagger\ddagger}}
+\setfnsymbol{lamportnostar}
+\interfootnotelinepenalty=10000 % Prevent from breaking accross pages
+
+% Use Baskervald Font. This is not one of the recommended fonts, but it is not required
+% that we use a font from that list.
+\usepackage[lf]{Baskervaldx} % lining figures
+\usepackage[bigdelims,vvarbb]{newtxmath} % math italic letters from Nimbus Roman
+\usepackage[cal=cm]{mathalfa} % Use mathcal from Computer Modern
+\renewcommand*\oldstylenums[1]{\textosf{#1}}
+\frenchspacing % Use single spacing after periods
+
+% Set up nomenclature conditions
+\usepackage{nomencl}
+\makenomenclature
+% Set nomenclature title
+\renewcommand{\nomname}{List of Symbols}
+\renewcommand{\nompreamble}{Effort has been made to use the blow symbols consistently. In the interest of clarity, symbols are occasionally used in isolation for other purposes, in which case their pertinent meaning will be stated.}
+% Nomenclature group definitions
+\usepackage{ifthen}
+\renewcommand{\nomgroup}[1]{%
+  \ifthenelse{\equal{#1}{A}}{ {\vskip 6mm} \item[\textbf{Roman Letters}]}{%
+  \ifthenelse{\equal{#1}{G}}{ {\vskip 6mm} \item[\textbf{Greek Letters}]}{%
+  \ifthenelse{\equal{#1}{M}}{ {\vskip 6mm} \item[\textbf{Mathematical Notations}]}{%
+  \ifthenelse{\equal{#1}{S}}{ {\vskip 6mm} \item[\textbf{Subscripts and Superscripts}]}{%
+  }}}}%
+}
+
+% Load hyperref second to last since it redefines some macros. Make all links black so they
+% don't stand out in the PDF
+\usepackage[bookmarksnumbered,pdfa]{hyperref}
+ \hypersetup{bookmarks=true,
+             pdfauthor={Author Name},
+						 pdftitle={Title of Dissertation},
+						 pdfsubject={Research Notes},
+						 pdfkeywords={Keywords},
+             colorlinks=true,
+             urlcolor=black,
+             linkcolor=black,
+             citecolor=black}
+\usepackage[all]{hypcap}
+
+% Finally, load cleveref, which allows automatic formatting of the references
+\usepackage{cleveref}
