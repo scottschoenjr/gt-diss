@@ -47,7 +47,7 @@
 % Use Baskervald Font. This is not one of the recommended fonts, but it is not required
 % that we use a font from that list.
 \usepackage[lf]{Baskervaldx} % lining figures
-\usepackage[bigdelims,vvarbb]{newtxmath} % math italic letters from Nimbus Roman
+\usepackage[bigdelims,vvarbb]{newtxmath} % Use math italic letters from Nimbus Roman
 \usepackage[cal=cm]{mathalfa} % Use mathcal from Computer Modern
 \renewcommand*\oldstylenums[1]{\textosf{#1}}
 \frenchspacing % Use single spacing after periods
@@ -84,3 +84,8 @@
 
 % Finally, load cleveref, which allows automatic formatting of the references
 \usepackage{cleveref}
+
+% Set formats of reference types
+\crefname{equation}{Eq.}{Eqs.}
+\Crefname{equation}{Equation}{Equations}
+
