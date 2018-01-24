@@ -16,7 +16,8 @@
 
 \begin{document}
 
-\doublespacing  %set line spacing
+\onehalfspacing  % Sets line spacing
+\frenchspacing   % Do not add extra space after periods
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Title Page
@@ -63,25 +64,6 @@
 % Table of Contents
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Format for Table of Contents
-\renewcommand{\cftchapdotsep}{\cftdotsep}  %add dot separators
-\renewcommand{\cftchapfont}{\bfseries}  %set title font weight
-\renewcommand{\cftchappagefont}{}  %set page number font weight
-\renewcommand{\cftchappresnum}{Chapter }
-\renewcommand{\cftchapaftersnum}{:~~}
-\renewcommand{\cftchapnumwidth}{5em}
-\renewcommand{\cftchapafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
-\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  %set correct spacing for entries in single space environment
-\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
-\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
-
-%format title font size and position (this also applys to list of figures and list of tables)
-\titleformat{\chapter}[display]
-{\Large\bfseries\filcenter}{\chaptertitlename\ \thechapter}{0pt}{#1}
-
-\renewcommand\contentsname{Table of Contents}
-
-% Print table of contents
 {\singlespacing
 \tableofcontents
 }
@@ -98,6 +80,7 @@
 \begin{singlespace}
 	\setlength\cftbeforetabskip{\baselineskip}  %manually set spacing between entries
 	\listoftables
+  \label{sec:ListOfTables}
 \end{singlespace}
 
 \clearpage
@@ -122,44 +105,10 @@
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%
-% formatting
-%%%%%%%%%%%%%%%%%%%%%%
-
-% resume page numbering for rest of document
+% Resume page numbering for rest of document
 \clearpage
 \pagenumbering{arabic}
 \setcounter{page}{1} % set the page number appropriately
-
-% From the manual: "Chapters are customarily divided into subsections with subheadings
-% that have slightlydiffering font styles and are designated first, second, and third-
-% level. The first-level subdivision should have greater attention value than the lower
-% levels. Centered headings have more attention value than headings beginning at the
-% left margin, and italic, underlining, or bold-face type has more attention value than
-% plain text. Attention value is also enhanced by leaving some blank space above and
-% below". The "customarily" languate differs from language elsewhere in the document
-% indicates compulsion (e.g., "must", "Leave three blank lines", etc.). Therefore I 
-% interpret the section formatting as suggested, and ignore the suggestion, as I think
-% changing fonts, weights, and styles is distracting. The new line, coupled with the 
-% section number (e.g., 2.1.4) clearly indicates its importance.
-
-% Format Chapter headings
-\titleformat{\chapter}[display]% 
-{\filcenter\bfseries\Large}% Chapter Title Font
-{Chapter~\thechapter}% Label
-{-1mm} % Separation
-{#1}
-\titlespacing*{\chapter}
-  {0pt}{0pt}{30pt}	%controls vertical margins on title
-  
-% Adjust section title formatting
-\titleformat{\section}{\large\bfseries}{\thesection\hspace{2mm}}{0pt}{#1}
-
-% Adjust subsection title formatting
-\titleformat{\subsection}{\bfseries}{\thesubsection\hspace{2.5mm}}{0pt}{#1}
-
-% Adjust subsubsection title formatting
-\titleformat{\subsubsection}{\bfseries}{\thesubsubsection\hspace{3mm}}{0pt}{#1}
 
 %%%%%%%%%%%%%%%%
 % Chapter 1

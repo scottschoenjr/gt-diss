@@ -1,4 +1,3 @@
-
 % Load in required packages
 
 % For images and plots
@@ -13,9 +12,10 @@
 % Table of contents control and formatting
 \usepackage[titles]{tocloft}  
 % Set up bibliography formatting
-% \usepackage[backend=bibtex, sorting=none, bibstyle=ieee]{biblatex}  
+% \usepackage[backend=bibtex, sorting=none, bibstyle=ieee]{biblatex} 
 % Load package for appendices
-\usepackage[page]{appendix}
+\usepackage[page]{appendix} 
+
 % For rotated, landscape images
 \usepackage{rotating} 
 % For italicized text 
@@ -26,6 +26,13 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 
+% To demonstrate commands (without LaTeX trying to interpret them)
+\usepackage{verbatim}
+
+% For dummy text
+\usepackage[english]{babel}
+\usepackage{blindtext}
+
 % This will allow numbering of subsubsections
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4} % Set to 3 to exclude subsubsections from TOC
@@ -33,13 +40,61 @@
 % Use cite package so we can do superscript citations
 \usepackage[superscript]{cite}
 
+% Use caption package
+\usepackage{caption}
+% Set caption preferences
+\DeclareCaptionLabelFormat{bsc}{\textbf{\textsc{#1}\ #2}}
+\captionsetup{labelformat=bsc,margin=10pt,font=small,width=0.8\linewidth}
+
+
 % Call it "References" instead of "Bibliography"
 \renewcommand\bibname{References}
 
+% Set up the Table of Contents formatting
+
+\renewcommand\contentsname{Table of Contents}
+
+% Chapter settings
+\renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
+\renewcommand{\cftchapfont}{\bfseries}  %set title font weight
+\renewcommand{\cftchappagefont}{}  %set page number font weight
+\renewcommand{\cftchappresnum}{Chapter }
+\renewcommand{\cftchapaftersnum}{:~~}
+\renewcommand{\cftchapnumwidth}{5em}
+\renewcommand{\cftchapafterpnum}{\vskip0.5\baselineskip} %set correct spacing for entries in single space environment
+
+% Section and subsection formatting
+\cftsetindents{section}{18mm}{0.5in}
+\renewcommand{\cftsecdotsep}{1000}  % No leaders
+%\renewcommand{\cftsecafterpnum}{\vskip\baselineskip}  %set correct spacing for entries in single space environment
+
+\cftsetindents{subsection}{18mm}{0.5in}
+\renewcommand{\cftsubsecdotsep}{1000}  % No leaders
+%\renewcommand{\cftsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
+
+\cftsetindents{subsubsection}{18mm}{0.5in}
+\renewcommand{\cftsubsubsecdotsep}{1000}  % No leaders
+%\renewcommand{\cftsubsubsecafterpnum}{\vskip\baselineskip} %set correct spacing for entries in single space environment
+
+
+% Format title font size and position (this also applies to list of figures and list of tables)
+
+% Set heading formats
+% Chapter
+\titleformat{\chapter}[display]
+{\Large\bfseries\filcenter}{\chaptertitlename\ \thechapter}{0pt}{#1}
+% Section
+\titleformat{\section}{\large\bfseries}{\thesection\hspace{2mm}}{0pt}{#1}
+% Subsection
+\titleformat{\subsection}{\bfseries}{\thesubsection\hspace{2.5mm}}{0pt}{#1}
+% Subsubsection
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection\hspace{3mm}}{0pt}{#1}
+
+
 % Set up footnote style. We'll use symbols to distinguish from superscipt numbers, which
 % used for the references. We won't use the asterisk though, because I think it's kinda 
-% ugly.
-\usepackage[bottom,hang,flushmargin,perpage,symbol*]{footmisc}
+% ugly. The hang and flushmargin prevent the first line from being indented
+\usepackage[bottom,hang,flushmargin,perpage,symbol*]{footmisc} 
 \DefineFNsymbols*{lamportnostar}[math]{\dagger\ddagger\S\P\|{\dagger\dagger}{\ddagger\ddagger}}
 \setfnsymbol{lamportnostar}
 \interfootnotelinepenalty=10000 % Prevent from breaking accross pages
@@ -62,10 +117,13 @@
 \usepackage{ifthen}
 \renewcommand{\nomgroup}[1]{%
   \ifthenelse{\equal{#1}{A}}{ {\vskip 6mm} \item[\textbf{Roman Letters}]}{%
-  \ifthenelse{\equal{#1}{G}}{ {\vskip 6mm} \item[\textbf{Greek Letters}]}{%
-  \ifthenelse{\equal{#1}{M}}{ {\vskip 6mm} \item[\textbf{Mathematical Notations}]}{%
-  \ifthenelse{\equal{#1}{S}}{ {\vskip 6mm} \item[\textbf{Subscripts and Superscripts}]}{%
-  }}}}%
+    \ifthenelse{\equal{#1}{G}}{ {\vskip 6mm} \item[\textbf{Greek Letters}]}{%
+      \ifthenelse{\equal{#1}{M}}{ {\vskip 6mm} \item[\textbf{Mathematical Notations}]}{%
+        \ifthenelse{\equal{#1}{S}}{ {\vskip 6mm} \item[\textbf{Subscripts and Superscripts}]}{%
+        }
+      }
+    }
+  }
 }
 
 % Load hyperref second to last since it redefines some macros. Make all links black so they
@@ -88,4 +146,39 @@
 % Set formats of reference types
 \crefname{equation}{Eq.}{Eqs.}
 \Crefname{equation}{Equation}{Equations}
+
+\crefname{table}{Table}{Tables}
+\Crefname{table}{Table}{Tables}
+
+\crefname{figure}{Fig.}{Figs.}
+\Crefname{figure}{Figure}{Figures}
+
+\crefname{section}{Sec.}{Secs.}
+\Crefname{section}{Section}{Sections}
+
+\crefname{chapter}{Chap.}{Chaps.}
+\Crefname{section}{Section}{Sections}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
