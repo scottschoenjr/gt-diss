@@ -82,16 +82,30 @@ Compare the following\\
 
 \section{Cross-Referencing}
 One of the chief advantages of \LaTeX{} is how easy it makes cross-references.
-Note that we often want to refer to a figure or equation.
-Sure, we could number them by hand, but it we insert or delete 
-
-
-Items are referenced using \texttt{cleveref} and \texttt{hyperref} packages. For example, here's an equation
+Sure, this can be done in Word, but if you've tried messing with field codes, you probably sensed that there was probably an easier way.
+In this template items are referenced using \texttt{cleveref} and \texttt{hyperref} packages.
+For example, suppose we type for an equation
+{\small
+\begin{verbatim}
 \begin{align}
-   i\hbar\frac{\partial}{\partial t}\Psi &= \left[ \frac{-\hbar^{2}}{2m}\nabla^{2} + V\right]\Psi\,.
+  i\hbar\frac{\partial}{\partial t}\psi 
+  &=
+  \left[ \frac{-\hbar^{2}}{2m}\nabla^{2} + V\right]\psi\,.
   \label{eqn:SchrodingerEquation}
 \end{align}
-\Cref{eqn:SchrodingerEquation} should be referenced as so.
+\end{verbatim}
+}%
+which prints as
+\begin{align}
+  i\hbar\frac{\partial}{\partial t}\Psi &= \left[ \frac{-\hbar^{2}}{2m}\nabla^{2} + V\right]\Psi\,.
+  \label{eqn:SchrodingerEquation}
+\end{align}
+To refer to this equationlater on, we type \verb|\cref{eqn:SchrodingerEquation}|, which prints as \cref{eqn:SchrodingerEquation}.
+
+The \texttt{cleveref} package allows you to define how the refereces print out, e.g., Eq. 1 vs. eq.~(1); or Figure~1 vs. fig.~1, etc.
+The \texttt{hyperef} package makes it so that all your references are clickable. 
+So if you reference, for example, \cref{fig:IntensityVsWavelength} a few pages later, clicking it will jump back to the figure (try it).
+Unfortunately there's no ``back'' button, so if you jump back, you have to manually scroll forward.
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat \cite{ref1}. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur \cite{ref2}. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

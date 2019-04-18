@@ -1,9 +1,19 @@
-% Load in required packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GT-DISS
+%
+%  This file defines the packages required to compile
+%  "thesis.tex", as well as style settings for the 
+%  document (e.g., prefixes for equations). 
+%
+%  Some of the settings are reuquired by GT, so make
+%  sure any changes are in compliance.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % For images and plots
 \usepackage{graphicx} 
 % Set required margins. It's insisted that the left margin be 1.5 in (for printing)
-% even for digital coies.
+% even for digital copies. This is lunacy.
 \usepackage[letterpaper, left=1.5in, right=1in, top=1in, bottom=1in]{geometry}
 % Allows us to set linespacing conveniently as desired
 \usepackage{setspace}  
@@ -46,7 +56,6 @@
 \DeclareCaptionLabelFormat{bsc}{\textbf{\textsc{#1}\ #2}}
 \captionsetup{labelformat=bsc,margin=10pt,font=small,width=0.8\linewidth}
 
-
 % Call it "References" instead of "Bibliography"
 \renewcommand\bibname{References}
 
@@ -62,12 +71,12 @@
 
 % Chapter settings
 \renewcommand{\cftchapdotsep}{\cftdotsep}  % add dot separators
-\renewcommand{\cftchapfont}{\bfseries}  %set title font weight
+\renewcommand{\cftchapfont}{\bfseries}  % set title font weight
 \renewcommand{\cftchappagefont}{\bfseries}  %set page number font weight
 \renewcommand{\cftchappresnum}{Chapter }
 \renewcommand{\cftchapaftersnum}{:~~}
 \renewcommand{\cftchapnumwidth}{5em}
-\renewcommand{\cftchapafterpnum}{\vskip0.5\baselineskip} %set correct spacing for entries in single space environment
+\renewcommand{\cftchapafterpnum}{\vskip0.5\baselineskip} % set correct spacing for entries in single space environment
 \renewcommand{\cftchapdotsep}{1000}  % Leader separation set to huge number (1000 works) to remove
 
 % Section and subsection formatting
@@ -102,7 +111,7 @@
 
 
 % Set up footnote style. We'll use symbols to distinguish from superscipt numbers, which
-% used for the references. We won't use the asterisk though, because I think it's kinda 
+% are used for the references. We won't use the asterisk though, because I think it's kinda 
 % ugly. The hang and flushmargin prevent the first line from being indented
 \usepackage[bottom,hang,flushmargin,perpage,symbol*]{footmisc} 
 \DefineFNsymbols*{lamportnostar}[math]{\dagger\ddagger\S\P\|{\dagger\dagger}{\ddagger\ddagger}}
@@ -110,9 +119,10 @@
 \interfootnotelinepenalty=10000 % Prevent from breaking accross pages
 
 % Use Baskervald Font. This is not one of the recommended fonts, but it is not required
-% that we use a font from that list.
+% that we use a font from that list, and it's my favorite for this type of document.
 \usepackage[lf]{Baskervaldx} % lining figures
 \usepackage[bigdelims,vvarbb]{newtxmath} % Use math italic letters from Nimbus Roman
+%\usepackage[default,regular,black]{sourceserifpro}
 \usepackage[cal=cm]{mathalfa} % Use mathcal from Computer Modern
 \renewcommand*\oldstylenums[1]{\textosf{#1}}
 \frenchspacing % Use single spacing after periods
