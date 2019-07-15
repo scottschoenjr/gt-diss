@@ -39,8 +39,8 @@ The following code will give the results in \cref{fig:IntensityVsWavelength}.
 \end{minipage}
 
 Note the use of a short caption in brackets in the \texttt{\textbackslash caption} command.
-This lets us have a long explanatory caption, without keeping our List of Tables compact (compare the caption of \cref{fig:IntensityVsWavelength}) with how it's listed on \cpageref{sec:ListOfTables}.
-
+This lets us have a long explanatory caption, without keeping our List of Tables compact (compare the caption of \cref{fig:IntensityVsWavelength}) with how it's listed on \cpageref{sec:ListOfTables}. 
+%
 \begin{figure}
   \centering
   \includegraphics[width=0.75\linewidth]{figures/exampleFigure.png}
@@ -49,18 +49,24 @@ This lets us have a long explanatory caption, without keeping our List of Tables
          in the brackets.}
   \label{fig:IntensityVsWavelength}
 \end{figure}
-
+%
 For large figures, it might be necessary to display it sideways (i.e., in landscape). 
-If only the figure is to be done this way, the \texttt{\textbackslash sidewaysfigure} environment may be used:
+If only the figure is to be done this way, the \texttt{\textbackslash sidewaysfigure} environment may be used: \\
+
+\begin{minipage}{0.75\textwidth}
+\footnotesize
+  \vspace{2mm}
 \begin{verbatim}
-  \begin{sidewaysfigure}
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/exampleFigure.png}
-    \caption[Sideways Example Figure]{This is another example Figure, 
-    rotated to landscape orientation.}
-    \label{LandscapeFigure}
-  \end{sidewaysfigure}
-\end{verbatim}
+\begin{sidewaysfigure}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/exampleFigure.png}
+  \caption[Sideways Example Figure]{This is another example Figure, 
+  rotated to landscape orientation.}
+  \label{LandscapeFigure}
+\end{sidewaysfigure}
+\end{verbatim}  
+  \vspace{2mm}
+\end{minipage} \\
 The result of this code is shown in \cref{LandscapeFigure}. 
 Note that this figure will occupy the entire page.
 If you'd like to have landscape text as well, consider using the \texttt{lscape} or \texttt{pdflscape} packages.
@@ -203,20 +209,45 @@ The \texttt{hyperef} package makes it so that all your references are clickable.
 So if you reference, for example, \cref{fig:IntensityVsWavelength} a few pages later, clicking it will jump back to the figure (try it).
 Unfortunately there's no ``back'' button, so if you jump back, you have to manually scroll forward.
 
-\section{Section}
+\section{References}
+Bibliographies and citations are also a strength of \LaTeX{}. 
+For a document as large as a dissertation, we may have hundreds of sources to keep track of. 
+For this, I highly recommend the citation manager \href{https://www.zotero.org/}{Zotero}, but there are several that are compatible with \LaTeX{}.
+The main thing is that sources must be formatted as \textsc{Bib}\TeX\ entries. \\
 
-\Blindtext
+\textsc{Bib}\TeX\ is a file format for storing information about references.
+For instance, a paper citation is stored as:\\
+\begin{minipage}{0.75\textwidth}
+\small
+  \vspace{2mm}
+  \begin{verbatim}
+@article{wiles_modular_1995,
+   author = {Andrew Wiles},
+   journal = {Annals of Mathematics},
+   number = {3},
+   pages = {443--551},
+   publisher = {Annals of Mathematics},
+   title = {Modular Elliptic Curves and Fermat's Last Theorem},
+   volume = {141},
+   year = {1995}
+}
+  \end{verbatim}
+\end{minipage}\\
+All of these entries are then written in a \textsc{Bib}\TeX\ file, say \texttt{sources.bib}.
+Then we can cite this source in the main document with the \verb|\cite{}| command. 
+For example:
 
-\subsection{Example Subsection}
-
-\blindtext
-
-
-\subsubsection{Example Subsubsection}
-
-\blindtext
-
-\section{God, \emph{Another} Section??? }
-
-% This is a figure in landscape orientation
+\noindent
+\begin{minipage}{0.45\textwidth}
+\small
+  \vspace{4mm}
+  \begin{verbatim}
+It may be shown that for $a, b, c, n \in \mathbb{Z}$,
+$a^{n} + b_{n} \neq c^{n}$ for $n > 2$.\cite{wiles_modular_1995}
+  \end{verbatim}
+\end{minipage}\\
+which prints as: \\
+\begin{minipage}{0.45\textwidth}
+It may be shown that for $a, b, c, n \in \mathbb{Z}$, $a^{n} + b_{n} \neq c^{n}$ for $n > 2$.\cite{wiles_modular_1995}
+\end{minipage}
 
